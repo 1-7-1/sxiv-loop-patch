@@ -1,0 +1,61 @@
+sxiv loop patch
+
+
+Summary
+
+This patch allows you to "loop" when moving the cursor in sxiv.
+sxiv is available here: https://github.com/muennich/sxiv
+For example, if your cursor is positioned on the last image in the thumbnail
+view, moving it to the right will take you back to the first image.
+
+
+Features
+
+Things that loop:
+
+- Thumbnail selection (both vertically and horizontally) in thumbnail mode
+- Image navigation in image mode
+- Navigating through frames of animation while viewing an animated image
+- Navigating through marked images
+
+Things that don't loop:
+- Zoom controls
+- Gamma controls
+
+Other changes:
+- The mouse cursor changes to an arrow for image mode navigation even if you are
+	pointing to the left of the first image or to the right of the last
+	image.
+
+
+How to install
+
+Please see the "Notes" section at the bottom of this file for more information.
+
+Patch the relevant files in the sxiv source using patch(1).
+
+For example, to patch main.c, you would type something like:
+
+patch sxiv/main.c sxiv-loop-patch/main.c.diff
+
+...assuming that the sxiv source is located in ./sxiv and the patch files are
+located in ./sxiv-loop-patch .
+
+The diff files where generated using GNU diff so if you're having problems,
+you may want to use GNU patch or make the changes manually.
+
+
+Contributing
+
+If you find a bug, plase report it or fix it. Other contributions will likely
+not be accepted.
+
+
+Notes
+
+This patch was made for sxiv commit
+1d28627868f5133a25a0197af21a187799ffa98e (Stable version 26)
+and will likely not be maintained. If you are using a later version and the
+patch doesn't work, I cannot guarantee that I'll help you. In the case where I
+don't, you'll have to look at the code and figure it out yourself.
+
