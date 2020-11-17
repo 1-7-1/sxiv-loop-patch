@@ -1,0 +1,13 @@
+*** ../sxiv2/main.c	2020-11-17 14:39:57.873806313 -0500
+--- ../sxiv/main.c	2020-11-17 14:35:59.990798175 -0500
+*************** void reset_cursor(void)
+*** 428,435 ****
+  			if (timeouts[i].handler == reset_cursor) {
+  				if (timeouts[i].active) {
+  					c = ptr_third_x();
+- 					c = MAX(fileidx > 0 ? 0 : 1, c);
+- 					c = MIN(fileidx + 1 < filecnt ? 2 : 1, c);
+  					cursor = imgcursor[c];
+  				}
+  				break;
+--- 428,433 ----

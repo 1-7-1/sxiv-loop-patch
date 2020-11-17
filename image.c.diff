@@ -1,0 +1,25 @@
+*** ../sxiv2/image.c	2020-11-17 14:39:57.872806313 -0500
+--- ../sxiv/image.c	2020-11-17 12:38:53.206557772 -0500
+*************** bool img_frame_navigate(img_t *img, int
+*** 774,783 ****
+  		return false;
+  
+  	d += img->multi.sel;
+! 	if (d < 0)
+! 		d = 0;
+! 	else if (d >= img->multi.cnt)
+! 		d = img->multi.cnt - 1;
+  
+  	return img_frame_goto(img, d);
+  }
+--- 774,783 ----
+  		return false;
+  
+  	d += img->multi.sel;
+! 	while (d < 0)
+! 		d += img->multi.cnt;
+! 	while (d >= img->multi.cnt)
+! 		d -= img->multi.cnt;
+  
+  	return img_frame_goto(img, d);
+  }
